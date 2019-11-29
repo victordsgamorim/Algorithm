@@ -1,3 +1,5 @@
+package easy
+
 fun main() {
 
     /*Given list of strings and a string return index of th value in the list or -1 if value was not found.*/

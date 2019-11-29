@@ -1,3 +1,5 @@
+package easy
+
 fun main() {
 
     /*Given two ranges implement a function which checks if range1 contains range2.*/

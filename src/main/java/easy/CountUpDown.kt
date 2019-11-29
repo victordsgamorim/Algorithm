@@ -1,3 +1,5 @@
+package easy
+
 fun main() {
 
     /*Given positive integer n implement a function which returns
