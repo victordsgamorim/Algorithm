@@ -14,9 +14,8 @@ fun encodeCaesarCipher(string: String, number: Int): String {
     val list = letters()
     val builder = StringBuilder()
 
-    for (i in string) {
-
-        val indexLetter = if (list.indexOf(i) == list.size - 1) {
+    string.forEach {
+        val indexLetter = if (list.indexOf(it) == list.size - 1) {
             val first = list.indexOf(list.first())
 
             if (number == 1) {
@@ -25,7 +24,7 @@ fun encodeCaesarCipher(string: String, number: Int): String {
                 first + number
             }
         } else {
-            list.indexOf(i) + number
+            list.indexOf(it) + number
         }
 
         builder.append(list[indexLetter])
@@ -36,10 +35,6 @@ fun encodeCaesarCipher(string: String, number: Int): String {
 
 private fun letters(): MutableList<Char> {
     val list = mutableListOf<Char>()
-    val letters = 'a'..'z'
-
-    for (i in letters) {
-        list.add(i)
-    }
+    ('a'..'z').forEach { list.add(it) }
     return list
 }
