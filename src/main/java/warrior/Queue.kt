@@ -27,8 +27,8 @@ fun main() {
 
 interface Data<T> {
     fun add(element: T)
-    fun remove()
-    fun peek(): T
+    fun remove(): Boolean?
+    fun peek(): T?
     fun isEmpty(): Boolean
 }
 
@@ -41,20 +41,9 @@ class Queue<T>(private val queue: MutableList<T> = mutableListOf()) : Data<T> {
         queue.add(element)
     }
 
-    override fun remove() {
+    override fun remove() = if (!isEmpty()) queue.remove(queue.first()) else null
 
-        if (!isEmpty()) {
-            val fifo = queue.first()
-            value = fifo
-            queue.remove(fifo)
-        } else {
-            throw NullPointerException("Queue is empty so it cannot delete null space")
-        }
-    }
-
-    override fun peek(): T {
-        return value ?: throw IllegalArgumentException("No such element in the queue has been removed yet.")
-    }
+    override fun peek(): T? = queue.firstOrNull()
 
     override fun isEmpty() = queue.size == 0
 
