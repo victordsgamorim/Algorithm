@@ -1,51 +1,55 @@
 package warrior
 
-import java.lang.IllegalArgumentException
-import java.lang.NullPointerException
-
 fun main() {
-    val queue = Queue<Int>()
-    queue.add(1)
-    queue.add(2)
-    queue.add(3)
-    queue.remove()
+    val q = Queue<Int>()
+    q.add(1)
+    q.add(2)
+    q.add(3)
+    q.remove()
 
-    println(queue.lista)
-    println(queue.peek())
+    println(q.queue)
+    println(q.peek())
 
-    queue.remove()
-    println(queue.peek())
-    println(queue.lista)
+    q.remove()
+    println(q.peek())
+    println(q.queue)
 
-    queue.remove()
-    println(queue.peek())
-    println(queue.lista)
+    q.remove()
+    println(q.peek())
+    println(q.queue)
 
-    queue.remove()
+    q.remove()
 
 }
 
 interface Data<T> {
-    fun add(element: T)
-    fun remove(): Boolean?
+    fun add(element: T): T
+    fun remove(): T?
     fun peek(): T?
     fun isEmpty(): Boolean
 }
 
-class Queue<T>(private val queue: MutableList<T> = mutableListOf()) : Data<T> {
+class Queue<T>(private val q: MutableList<T> = mutableListOf()) : Data<T> {
 
     private var value: T? = null
-    val lista = this.queue
+    val queue = this.q.toList()
 
-    override fun add(element: T) {
-        queue.add(element)
+    override fun add(element: T): T {
+        q.add(element)
+        return element
     }
 
-    override fun remove() = if (!isEmpty()) queue.remove(queue.first()) else null
+    override fun remove(): T? {
+        if (!isEmpty()) {
+            val temp = q.first()
+            q.remove(q.first())
+            return temp
+        }
+        return null
+    }
 
-    override fun peek(): T? = queue.firstOrNull()
+    override fun peek(): T? = q.firstOrNull()
 
-    override fun isEmpty() = queue.size == 0
-
+    override fun isEmpty() = q.size == 0
 
 }
