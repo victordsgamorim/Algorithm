@@ -35,7 +35,7 @@ private fun insertionSort(): List<Int> {
     for (i in 1 until list.size) {
         var analyzer = i
         while (analyzer > 0 && list[analyzer] < list[analyzer - 1]) {
-            list.swap(analyzer - 1, analyzer)
+            swap(list, analyzer - 1, analyzer)
             analyzer--
         }
     }
