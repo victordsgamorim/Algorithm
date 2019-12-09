@@ -34,3 +34,12 @@ fun factorial(number: Int): Int {
     }
     return result
 }
+
+private fun recusiveFactorial(number: Int): Int {
+
+    if (number == 0) {
+        return 1
+    }
+
+    return number * recusiveFactorial(number - 1)
+}
