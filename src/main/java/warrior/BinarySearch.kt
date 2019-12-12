@@ -1,5 +1,6 @@
 package warrior
 
+
 fun main() {
 
     /*Given list of sorted elements and a element return index of that element in the list or -1 if
@@ -11,6 +12,32 @@ fun main() {
     println(binarySearch(listOf('A', 'B', 'C'), 'B')) // 1
 
     println(binarySearch(listOf('A', 'B', 'C'), 'H')) // -1
+
+    val lista = mutableListOf<Char>('E', 'F', 'G', 'A', 'B', 'D', 'C')
+    lista.sort()
+    println(binarySearch(lista, 0, lista.size, 'E')) // 4
+
+
+}
+
+
+private fun binarySearch(list: MutableList<Char>, start: Int, end: Int, char: Char): Int {
+
+    val mid = (start + end) / 2
+    val midValue = list[mid]
+
+    if (start > end) {
+        return -1
+    }
+
+    if (midValue == char) {
+        return mid
+    }
+
+    if (midValue > char) {
+        return binarySearch(list, start, mid - 1, char)
+    }
+    return binarySearch(list, mid + 1, end, char)
 }
 
 private fun binarySearch(list: List<Char>, letter: Char): Int {
@@ -26,7 +53,7 @@ private fun binarySearch(list: List<Char>, letter: Char): Int {
                     return i
                 }
             }
-        }else{
+        } else {
             for (i in middle..last) {
                 if (list[i] == letter) {
                     return i
@@ -38,4 +65,7 @@ private fun binarySearch(list: List<Char>, letter: Char): Int {
     return -1
 
 }
+
+
+
 

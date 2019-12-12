@@ -6,7 +6,7 @@ fun main() {
     println(quickSort(list))
 }
 
-private fun quickSort(list: MutableList<Int>): List<Number> {
+fun quickSort(list: MutableList<Int>): List<Number> {
     if (list.isEmpty()) {
         return list
     }

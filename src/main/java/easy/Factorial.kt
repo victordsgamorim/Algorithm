@@ -1,5 +1,7 @@
 package easy
 
+import java.util.*
+
 fun main() {
 
     /*Given positive integer n implement a function, which returns a factorial of that integer.
@@ -9,6 +11,8 @@ fun main() {
     factorial(1) // 1
     factorial(2) // 2
     factorial(3) // 6
+
+    recusiveFactorial(6)
 }
 
 fun factorial(number: Int): Int {
