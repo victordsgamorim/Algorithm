@@ -51,4 +51,3 @@ private val Int.digitCount: Int
     }
 
 private fun maxDigits(list: List<Int>) = list.map { it.digitCount }.max() ?: 0
-
